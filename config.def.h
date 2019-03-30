@@ -63,6 +63,15 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/* volume stuff */
+static const char *voldwcmd[] = { "amixer", "-c", "PCH", "set", "Master", "1%-", NULL };
+static const char *volupcmd[] = { "amixer", "-c", "PCH", "set", "Master", "1%+", NULL };
+static const char *volmcmd[] = { "amixer", "-c", "PCH", "set", "Master", "toggle", NULL };
+
+/* brightness stuff */
+static const char *lightup[] = { "brightness", "+", "eDP-1", NULL };
+static const char *lightdown[] = { "brightness", "-", "eDP-1", NULL };
+
 #include "push.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,6 +113,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ 0,                            0x1008ff11,     spawn,     {.v = voldwcmd } },
+        { 0,                            0x1008ff13,     spawn,     {.v = volupcmd } },
+        { 0,                            0x1008ff12,     spawn,     {.v = volmcmd } },
+        { 0,                            0x1008ff02,     spawn,     {.v = lightup } },
+        { 0,                            0x1008ff03,     spawn,     {.v = lightdown } }
+
 };
 
 /* button definitions */
