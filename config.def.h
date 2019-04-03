@@ -5,22 +5,29 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "xos4 Terminus:pixelsize=16:style=bold:antialias=false:autohint:false" };
+static const char dmenufont[]       = "xos4 Terminus:pixelsize=16:style=bold:antialias=false:autohint:false";
+static const char col_red[]         = "#c23127";
+static const char col_orange[]      = "#d26937";
+static const char col_yellow[]      = "#edb443";
+static const char col_magenta[]     = "#888ca6";
+static const char col_violet[]      = "#4e5166";
+static const char col_blue[]        = "#195466";
+static const char col_cyan[]        = "#33859e";
+static const char col_green[]       = "#2aa889";
+static const char col_base01[]      = "#11151c";
+static const char col_base02[]      = "#091f2e";
+static const char col_base05[]      = "#599cab";
+static const char col_base07[]      = "#d3ebe9";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeTitle]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_base05, col_base02, col_base01 },
+	[SchemeSel]  = { col_base07, col_blue, col_blue },
+	[SchemeTitle]  = { col_base07, col_blue,  col_blue },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -60,7 +67,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_base02, "-nf", col_base05, "-sb", col_blue, "-sf", col_base07, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 /* volume stuff */
